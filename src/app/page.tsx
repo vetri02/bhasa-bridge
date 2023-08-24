@@ -135,7 +135,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <h2 className="text-3xl font-bold tracking-tight text-gray-900">Bhasa Bridge</h2>
+                  <h2 className="text-3xl font-bold tracking-tight text-gray-900">Bhasha Bridge</h2>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Bhasa Bridge',
+  title: 'Bhasha Bridge',
   description: 'Translate text into Hindi effortlessly with Bhasha Bridge. Simplify language barriers and connect with India\'s rich culture. Try it now!',
 }
 
