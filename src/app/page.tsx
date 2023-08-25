@@ -149,7 +149,7 @@ export default function Home() {
                 <div className="sm:col-span-2">
                   <Label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">Enter Text - पाठ दर्ज करें</Label>
                   <div className="mt-2.5">
-                    <Textarea rows={12} placeholder="Enter Text any language. - किसी भी भाषा में पाठ दर्ज करें" id="message" onChange={handleInputChange} className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                    <Textarea rows={12} placeholder="Enter Text any language. - किसी भी भाषा में पाठ दर्ज करें" id="message" onChange={handleInputChange} className="appearance-none block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                     <p className={`text-sm text-muted-foreground pt-2 flex justify-end ${maxLengthReached ? 'text-red-500' : ''}`}>
                       Characters entered - पत्र दर्ज किये गये: {message.length}
                     </p>
