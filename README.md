@@ -1,4 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bhasha Bridge
+
+It's a language translation tool that allows users to translate text from one language to hindi with audio pronounciation.
+
+For translation, we use [LINGVANEX](https://lingvanex.com/) and for audio, we use [elevenlabs](https://elevenlabs.io/).
+
+## Tech Stack
+
+
+- [Next.js](https://nextjs.org/): A React framework for building modern web applications.
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/): A statically typed superset of JavaScript that adds optional types.
+- [LINGVANEX](https://lingvanex.com/): A powerful language translation API.
+- [elevenlabs](https://elevenlabs.io/): An API for generating audio from text.
+
+
+This is a project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -11,6 +27,17 @@ yarn dev
 # or
 pnpm dev
 ```
+
+Run the tests:
+
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm test
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
