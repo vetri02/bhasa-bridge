@@ -5,9 +5,6 @@ import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
-
 export const metadata: Metadata = {
   title: 'Bhasha Bridge',
   description: 'Translate text into Hindi effortlessly with Bhasha Bridge. Simplify language barriers and connect with India\'s rich culture. Try it now!',

@@ -4,27 +4,30 @@ import { Blob } from 'node-fetch';
 
 // Convert blob to stream
 const blobToStream = async (blob: Blob): Promise<Readable> => {
-    const readable = new Readable();
-    readable._read = () => {}; // _read is required but you can noop it
-    const buffer = Buffer.from(await blob.arrayBuffer());
-    readable.push(buffer);
-    readable.push(null);
-    return readable;
+  const readable = new Readable();
+  readable._read = () => { }; // _read is required but you can noop it
+  const buffer = Buffer.from(await blob.arrayBuffer());
+  readable.push(buffer);
+  readable.push(null);
+  return readable;
 }
 
+
+// Function to convert text to speech
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     // Handle the POST request
     const { text } = req.body;
 
     if (typeof text !== 'string') {
-        res.status(400).json({ error: 'Invalid message' });
-        return;
-      }
+      res.status(400).json({ error: 'Invalid message' });
+      return;
+    }
+
 
     const textToSpeech = async (text: string) => {
-    const url = 'https://api.elevenlabs.io/v1/text-to-speech/' + process.env.ELEVEN_LABS_VOICE_ID + '/stream';
-    const options = {
+      const url = 'https://api.elevenlabs.io/v1/text-to-speech/' + process.env.ELEVEN_LABS_VOICE_ID + '/stream';
+      const options = {
         method: 'POST',
         headers: {
           'accept': 'audio/mpeg',
@@ -50,8 +53,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         // Parsing response data
         const data = await response.blob();
         return data;
-  
-  
+
+
       } catch (error) {
         if (error instanceof Error) {
           console.log('There was a problem with the fetch operation: ' + error.message);
@@ -62,16 +65,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const textToSpeechBlob = await textToSpeech(text);
     if (!textToSpeechBlob) {
-        res.status(500).json({ error: 'Failed to convert text to speech' });
-        return;
-      }
+      res.status(500).json({ error: 'Failed to convert text to speech' });
+      return;
+    }
 
-      
-      const stream = await blobToStream(textToSpeechBlob);
+    // Convert the text to speech blob to a stream
+    const stream = await blobToStream(textToSpeechBlob);
     res.status(200);
-      res.setHeader('Content-Type', 'audio/mpeg');
-      stream.pipe(res);
-   
+    // Set the response header to indicate the content type as audio/mpeg
+    res.setHeader('Content-Type', 'audio/mpeg');
+    // Pipe the audio stream to the response
+    stream.pipe(res);
+
   } else {
     // Handle any other HTTP method
     res.setHeader('Allow', ['POST']);
