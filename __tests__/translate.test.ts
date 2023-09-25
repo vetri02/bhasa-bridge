@@ -1,4 +1,6 @@
-// __tests__/translate.test.js
+import { NextApiRequest, NextApiResponse } from 'next';
+import httpMocks, { MockResponse } from 'node-mocks-http';
+
 import translate from '../src/pages/api/translate'; // Import the API route directly
 
 describe('Translate API', () => {
@@ -6,8 +8,8 @@ describe('Translate API', () => {
     const req = {
       method: 'GET',
       body: {},
-    };
-    const res = {
+    } as NextApiRequest;
+    const res: MockResponse<any> = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     };
@@ -22,8 +24,8 @@ describe('Translate API', () => {
     const req = {
       method: 'POST',
       body: {},
-    };
-    const res = {
+    } as NextApiRequest;
+    const res: MockResponse<any> = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     };
@@ -35,11 +37,11 @@ describe('Translate API', () => {
   });
 
   it('should return 200 for valid POST requests', async () => {
-    const req = {
+    const req: NextApiRequest = {
       method: 'POST',
       body: { message: 'Hello' },
-    };
-    const res = {
+    } as NextApiRequest;
+    const res: MockResponse<any> = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     };
