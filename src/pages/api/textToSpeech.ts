@@ -14,7 +14,7 @@ const blobToStream = async (blob: Blob): Promise<Readable> => {
 
 
 // Function to convert text to speech
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handleRequest = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     // Handle the POST request
     const { text } = req.body;
@@ -83,3 +83,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
+
+export default handleRequest;

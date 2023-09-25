@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { string } from 'prop-types';
 
 // Main function to handle the API request and response
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handleRequest = async (req: NextApiRequest, res: NextApiResponse) => {
   // Check if the request method is POST
   if (req.method === 'POST') {
     // Extract the message from the request body
@@ -63,3 +63,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).json({ message: 'Method not allowed' });
   }
 }
+
+export default handleRequest;
