@@ -14,6 +14,18 @@ For translation, we use [LINGVANEX](https://lingvanex.com/) and for audio, we us
 - [elevenlabs](https://elevenlabs.io/): An API for generating audio from text.
 
 
+
+## Environment Variables
+
+The project uses the following environment variables:
+
+- `LINGVANEX_API_KEY`: The API key for the Lingvanex translation service.
+- `ELEVEN_LABS_API_KEY`: The API key for the Eleven Labs text-to-speech service.
+- `ELEVEN_LABS_VOICE_ID`: The voice ID for the Eleven Labs text-to-speech service.
+
+Check env.example
+
+
 This is a project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
